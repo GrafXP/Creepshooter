@@ -1130,7 +1130,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 132536, guid: 28dbcd6ccdbdf494d84e5825b9f3db2a, type: 2}
       propertyPath: m_Name
-      value: CreepSpawner (6)
+      value: CreepSpawnerloopidoo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28dbcd6ccdbdf494d84e5825b9f3db2a, type: 2}
