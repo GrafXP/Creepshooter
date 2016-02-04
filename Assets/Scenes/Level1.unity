@@ -1527,7 +1527,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496198, guid: 7371f6ed20676294f90afd23226b3400, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 11473430, guid: 7371f6ed20676294f90afd23226b3400, type: 2}
       propertyPath: camera
