@@ -9,13 +9,16 @@ public class PlayerController : MonoBehaviour {
     public int PlayerNr = 0;
     public float WalkVelocity = 10f;
     public Camera PlayerCamera;
-
+    public float BoostForce = 30f;
     
 
 
     private Rigidbody _rigidbody;
     private bool _onGround;
     public float Jumpforce = 20;
+    public float BoostDuration = 2;
+
+    private bool _canBoost= true;
    
    // public float Gravity = -9.81f;
 	// Use this for initialization
@@ -45,8 +48,27 @@ public class PlayerController : MonoBehaviour {
 
 
         //var foreward = transform.forward;
+        if (Input.GetButton("Boost" + PlayerNr)&&_onGround && BoostDuration>0&&_canBoost)
+        {
+            _rigidbody.AddForce(transform.forward.normalized * BoostForce);
+            BoostDuration -= 0.5f;
+            if (BoostDuration<= 0)
+            {
+                _canBoost = false;
+            }
+        }
+        else if(BoostDuration< 20)
+        {
+            
+            BoostDuration += 0.1f;
+            if (BoostDuration> 20)
+            {
+                BoostDuration = 20;
+                _canBoost = true;
+            }
+        }
 
-
+        
 
 
         if (Input.GetButton("Fire" + PlayerNr) && _onGround)
@@ -90,5 +112,12 @@ public class PlayerController : MonoBehaviour {
         }
         
         //print("Ground");
+    }
+
+
+    void OnGUI()
+    {
+        GUI.Label(new Rect(0.0f, 0.0f, 20f, 20f), BoostDuration.ToString() + " " + _rigidbody.velocity.magnitude);
+        GUI.Label(new Rect(0.0f, 50.0f, 100.0f, 100.0f),  _rigidbody.velocity.magnitude.ToString());
     }
 }

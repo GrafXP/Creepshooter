@@ -29,7 +29,8 @@ public class BulletBehaviour : MonoBehaviour {
     public void Shoot(float force, Quaternion orientation)
     {
         transform.rotation = orientation;
-        transform.GetComponent<Rigidbody>().velocity = transform.forward*force;
+        transform.GetComponent<Rigidbody>().velocity = transform.forward * force ;
+        
     }
 
     void OnCollisionEnter(Collision collision)

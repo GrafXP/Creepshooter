@@ -8,7 +8,7 @@ public class ShootBehaviour : MonoBehaviour {
 
     List<GameObject> bulletList;
     public int MagazineSize = 20;
-    public float BulletVelocity=100;
+    public float BulletVelocity=200;
     public float fireRate= 2;
     public GameObject SpawnObject;
 
@@ -44,9 +44,10 @@ public class ShootBehaviour : MonoBehaviour {
                 //print(_delay);
 
                 var shot = getBullet().GetComponent<BulletBehaviour>();
+                var diffVelo = transform.GetComponentInParent<Rigidbody>().velocity.magnitude;
+                
+                shot.Shoot(BulletVelocity+ diffVelo, transform.rotation);
                 shot.transform.parent = null;
-                shot.Shoot(BulletVelocity, transform.rotation);
-               
                 _delay = 0;
             }
             

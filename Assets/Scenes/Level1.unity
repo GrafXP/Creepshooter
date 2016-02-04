@@ -2370,7 +2370,9 @@ MonoBehaviour:
   PlayerNr: 0
   WalkVelocity: 10
   PlayerCamera: {fileID: 0}
+  BoostForce: 100
   Jumpforce: 20
+  BoostDuration: 2
 --- !u!54 &1832480476
 Rigidbody:
   m_ObjectHideFlags: 0
