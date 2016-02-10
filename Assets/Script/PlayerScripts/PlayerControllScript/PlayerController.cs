@@ -104,9 +104,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
-        if (collision.transform.tag == "Floor")
+        if (collision.transform.tag == "Floor"&&_onGround == false)
         {
             _onGround = true;
         }
@@ -119,5 +119,6 @@ public class PlayerController : MonoBehaviour {
     {
         GUI.Label(new Rect(0.0f, 0.0f, 20f, 20f), BoostDuration.ToString() + " " + _rigidbody.velocity.magnitude);
         GUI.Label(new Rect(0.0f, 50.0f, 100.0f, 100.0f),  _rigidbody.velocity.magnitude.ToString());
+        GUI.Label(new Rect(0.0f, 100.0f, 100.0f, 100.0f), _onGround.ToString());
     }
 }
